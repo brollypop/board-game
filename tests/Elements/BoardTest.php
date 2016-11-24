@@ -7,6 +7,7 @@ namespace Luke\Game\Tests\Elements;
 use Luke\Game\Elements\Board;
 use Luke\Game\Elements\Chip;
 use Luke\Game\Elements\Position;
+use Luke\Game\Exceptions\BoardMustHaveAtLeastOneFieldException;
 use Luke\Game\Exceptions\OutOfBoardBoundsException;
 
 /**
@@ -23,6 +24,13 @@ class BoardTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->board = new Board(4, 5);
+    }
+
+    public function testBoardMustHaveAtleastOneField()
+    {
+        $this->expectException(BoardMustHaveAtLeastOneFieldException::class);
+
+        new Board(0, 0);
     }
 
     public function testChipCanBePutOnBoard()
@@ -61,12 +69,5 @@ class BoardTest extends \PHPUnit_Framework_TestCase
         $board = new Board(1, 1);
 
         self::assertEquals(['1:1' => new Position(1, 1)], $board->getPositions());
-    }
-
-    public function testGetPositionsForEmptyBoard()
-    {
-        $board = new Board(0, 0);
-
-        self::assertEquals([], $board->getPositions());
     }
 }

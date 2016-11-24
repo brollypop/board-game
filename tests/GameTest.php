@@ -4,6 +4,7 @@ declare (strict_types = 1);
 
 namespace Luke\Game\Tests;
 
+use Luke\Game\Exceptions\WinningChipRevealedException;
 use Luke\Game\Settings\GameSettings;
 use Luke\Game\Exceptions\AmountOfTimeExceededException;
 use Luke\Game\Exceptions\AmountOfTriesExceededException;
@@ -58,6 +59,16 @@ class GameTest extends \PHPUnit_Framework_TestCase
 
         $game->start();
         sleep(2);
+        $game->revealChip(1, 1);
+    }
+
+    public function testPlayerShouldAlwaysWinOnSingleFieldBoard()
+    {
+        $game = new Game(new GameSettings(1, 1, 1, 5));
+
+        $this->expectException(WinningChipRevealedException::class);
+
+        $game->start();
         $game->revealChip(1, 1);
     }
 }

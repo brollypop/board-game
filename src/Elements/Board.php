@@ -4,6 +4,7 @@ declare (strict_types = 1);
 
 namespace Luke\Game\Elements;
 
+use Luke\Game\Exceptions\BoardMustHaveAtLeastOneFieldException;
 use Luke\Game\Exceptions\OutOfBoardBoundsException;
 
 /**
@@ -27,6 +28,9 @@ class Board
      */
     public function __construct(int $rowsAmount, int $colsAmount)
     {
+        if ($rowsAmount < 1 || $colsAmount < 1) {
+            throw new BoardMustHaveAtLeastOneFieldException('Board must have at least 1 field.');
+        }
         $this->rowsAmount = $rowsAmount;
         $this->colsAmount = $colsAmount;
         $this->generateFields();
