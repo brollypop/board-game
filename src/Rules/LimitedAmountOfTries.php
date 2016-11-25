@@ -29,7 +29,7 @@ class LimitedAmountOfTries
      *
      * @return bool
      */
-    public function isFulfilled(Game $game)
+    public function isFulfilled(Game $game): bool
     {
 
         return $game->movesDone() < $this->triesLimit;

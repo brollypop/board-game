@@ -1,5 +1,5 @@
 {
-    "name": "luke/game",
+    "name": "luke/board-game",
     "license": "MIT",
     "type": "project",
     "autoload": {

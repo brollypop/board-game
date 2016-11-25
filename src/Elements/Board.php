@@ -25,6 +25,8 @@ class Board
      *
      * @param int $rowsAmount
      * @param int $colsAmount
+     *
+     * @throws BoardMustHaveAtLeastOneFieldException
      */
     public function __construct(int $rowsAmount, int $colsAmount)
     {
@@ -50,7 +52,7 @@ class Board
      *
      * @return Field
      */
-    private function getField(Position $position)
+    private function getField(Position $position): Field
     {
         $this->checkPosition($position);
 
@@ -69,7 +71,7 @@ class Board
     /**
      * @return Position[]
      */
-    public function getPositions()
+    public function getPositions(): array
     {
         return array_map(function (Field $field) {
             return $field->getPosition();

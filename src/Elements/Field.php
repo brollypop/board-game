@@ -44,7 +44,7 @@ class Field
     /**
      * @return bool
      */
-    public function isEmpty()
+    public function isEmpty(): bool
     {
         return !$this->chip instanceof Chip;
     }
@@ -61,7 +61,7 @@ class Field
     /**
      * @return Position
      */
-    public function getPosition()
+    public function getPosition(): Position
     {
         return $this->position;
     }

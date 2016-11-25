@@ -80,7 +80,7 @@ class Game
     /**
      * @return int
      */
-    public function movesDone()
+    public function movesDone(): int
     {
         return $this->movesDone;
     }
@@ -88,7 +88,7 @@ class Game
     /**
      * @return int
      */
-    public function state()
+    public function state(): int
     {
         return $this->state;
     }
@@ -97,7 +97,7 @@ class Game
      * @return \DateTime
      * @throws GameNotStartedYetException
      */
-    public function getStartTime()
+    public function getStartTime(): \DateTime
     {
         if ($this->state() !== self::IN_PROGRESS) {
             throw new GameNotStartedYetException('Game has not started yet.');

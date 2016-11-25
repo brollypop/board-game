@@ -29,7 +29,7 @@ class LimitedAmountOfTime
      *
      * @return bool
      */
-    public function isFulfilled(Game $game)
+    public function isFulfilled(Game $game): bool
     {
         $currentTime = new \DateTime('now');
         $gameStartTime = $game->getStartTime();

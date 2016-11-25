@@ -30,7 +30,7 @@ class Position
     /**
      * @return int
      */
-    public function getRow()
+    public function getRow(): int
     {
         return $this->row;
     }
@@ -38,7 +38,7 @@ class Position
     /**
      * @return int
      */
-    public function getCol()
+    public function getCol(): int
     {
         return $this->col;
     }
@@ -48,7 +48,7 @@ class Position
      *
      * @return bool
      */
-    public function equals(Position $position)
+    public function equals(Position $position): bool
     {
         return $this->getCol() === $position->getCol() && $this->getRow() === $position->getRow();
     }
